@@ -6,7 +6,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet>
 		<servlet-name>GetList</servlet-name>
-		<servlet-class>ua.kiev.prog.GetListServlet</servlet-class>
+		<servlet-class>ua.kiev.prog.Servlets.MsgServlets.GetListServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>GetList</servlet-name>
@@ -15,7 +15,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	
 	<servlet>
 		<servlet-name>Add</servlet-name>
-		<servlet-class>ua.kiev.prog.AddServlet</servlet-class>
+		<servlet-class>ua.kiev.prog.Servlets.MsgServlets.AddServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Add</servlet-name>
@@ -24,25 +24,72 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 
 	<servlet>
 		<servlet-name>AddPrivateMessge</servlet-name>
-		<servlet-class>ua.kiev.prog.AddPrivateMessageServlet</servlet-class>
+		<servlet-class>ua.kiev.prog.Servlets.PrivateMsgServlets.AddPrivateMessageServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>AddPrivateMessge</servlet-name>
 		<url-pattern>/sendto</url-pattern>
 	</servlet-mapping>
 
+
+	<servlet>
+		<servlet-name>GetPrivMsg</servlet-name>
+		<servlet-class>ua.kiev.prog.Servlets.PrivateMsgServlets.GetPrivateMessageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetPrivMsg</servlet-name>
+		<url-pattern>/getprivmsg</url-pattern>
+	</servlet-mapping>
+
+
 	<servlet>
 		<servlet-name>Register</servlet-name>
-		<servlet-class>ua.kiev.prog.RegisterServlet</servlet-class>
+		<servlet-class>ua.kiev.prog.Servlets.LoginRegister.RegisterServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Register</servlet-name>
 		<url-pattern>/register</url-pattern>
 	</servlet-mapping>
 
+    <servlet>
+        <servlet-name>AddRoom</servlet-name>
+        <servlet-class>ua.kiev.prog.Servlets.RoomServlets.CreatRoomServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddRoom</servlet-name>
+        <url-pattern>/creatroom</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>JoinRoom</servlet-name>
+        <servlet-class>ua.kiev.prog.Servlets.RoomServlets.JoinRoomServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JoinRoom</servlet-name>
+        <url-pattern>/joinroom</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LeftRoom</servlet-name>
+        <servlet-class>ua.kiev.prog.Servlets.RoomServlets.LeftRoomServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LeftRoom</servlet-name>
+        <url-pattern>/leftroom</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddMsgToRoom</servlet-name>
+        <servlet-class>ua.kiev.prog.Servlets.RoomServlets.AddMsgToRoomServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddMsgToRoom</servlet-name>
+        <url-pattern>/sendtoroom</url-pattern>
+    </servlet-mapping>
+
 	<servlet>
 		<servlet-name>Login</servlet-name>
-		<servlet-class>ua.kiev.prog.LoginServlet</servlet-class>
+		<servlet-class>ua.kiev.prog.Servlets.LoginRegister.LoginServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Login</servlet-name>
@@ -51,7 +98,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 
 	<servlet>
 		<servlet-name>ListUsers</servlet-name>
-		<servlet-class>ua.kiev.prog.ListUsersServlet</servlet-class>
+		<servlet-class>ua.kiev.prog.Servlets.ListUsersServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ListUsers</servlet-name>
@@ -60,7 +107,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 
 	<servlet>
 		<servlet-name>PMessage</servlet-name>
-		<servlet-class>ua.kiev.prog.AddPrivateMessageServlet</servlet-class>
+		<servlet-class>ua.kiev.prog.Servlets.PrivateMsgServlets.AddPrivateMessageServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>PMessage</servlet-name>
@@ -70,8 +117,4 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
-
-	<listener>
-		<listener-class>ua.kiev.prog.HttpSessionCollector</listener-class>
-	</listener>
 </web-app>

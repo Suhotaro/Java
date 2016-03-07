@@ -1,7 +1,8 @@
-package ua.kiev.prog;
+package ua.kiev.prog.Servlets.LoginRegister;
 
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
+import ua.kiev.prog.User.User;
+import ua.kiev.prog.User.UsersMap;
 
 import javax.servlet.http.*;
 import java.io.IOException;

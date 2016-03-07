@@ -1,8 +1,10 @@
-package ua.kiev.prog;
+package ua.kiev.prog.Servlets.MsgServlets;
+
+import ua.kiev.prog.Msg.MessageList;
+import ua.kiev.prog.User.UsersMap;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.List;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,13 +31,5 @@ public class GetListServlet extends HttpServlet {
 		String json = msgList.toJSON(from);
 		if (json != null)
 			os.write(json.getBytes());
-
-		String user_name = (String) http_session.getAttribute("login");
-		User user = usersMap.getUser(user_name);
-
-		String private_messages = "PRIVATE:" + user.toJSON();
-
-		if (private_messages != null)
-			os.write(private_messages.getBytes());
 	}
 }

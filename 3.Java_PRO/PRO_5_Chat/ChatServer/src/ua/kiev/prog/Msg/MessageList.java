@@ -1,4 +1,4 @@
-package ua.kiev.prog;
+package ua.kiev.prog.Msg;
 
 import java.util.ArrayList;
 import java.util.List;

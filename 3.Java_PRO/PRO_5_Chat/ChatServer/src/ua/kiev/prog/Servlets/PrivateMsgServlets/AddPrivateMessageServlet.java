@@ -1,4 +1,9 @@
-package ua.kiev.prog;
+package ua.kiev.prog.Servlets.PrivateMsgServlets;
+
+import ua.kiev.prog.Msg.Message;
+import ua.kiev.prog.Msg.MessageList;
+import ua.kiev.prog.User.User;
+import ua.kiev.prog.User.UsersMap;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,17 +15,15 @@ import java.io.OutputStream;
 
 public class AddPrivateMessageServlet extends HttpServlet {
 
-    private MessageList msgList = MessageList.getInstance();
     private UsersMap usersMap = UsersMap.getInstance();
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws IOException
     {
-
-        OutputStream os = resp.getOutputStream();
-        User user = usersMap.getUser(req.getParameter("to"));
-        if (user == null)
+        HttpSession http_session = req.getSession(false);
+        if (http_session == null)
             resp.setStatus(400);
+
 
         InputStream is = req.getInputStream();
         byte[] buf = new byte[req.getContentLength()];
@@ -29,12 +32,13 @@ public class AddPrivateMessageServlet extends HttpServlet {
         if (buf == null)
             resp.setStatus(400);
 
+
         Message msg = Message.fromJSON(new String(buf));
-        if (msg != null)
-            user.addPrivateMessage(msg);
-        else
+        User user = usersMap.getUser(msg.getTo());
+        if (user == null)
             resp.setStatus(400);
 
-
+        if (msg != null)
+            user.addPrivateMessage(msg);
     }
 }

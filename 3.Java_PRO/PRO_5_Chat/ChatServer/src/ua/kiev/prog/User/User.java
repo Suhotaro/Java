@@ -1,7 +1,8 @@
-package ua.kiev.prog;
+package ua.kiev.prog.User;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import ua.kiev.prog.Msg.Message;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,10 +56,10 @@ public class User
     }
 
     public void addPrivateMessage (Message msg) {private_massages.add(msg);}
-    public String toJSON()
+    public String toJSON(int n)
     {
         List<Message> res = new ArrayList<Message>();
-        for (int i = 0; i < private_massages.size(); i++)
+        for (int i = n; i < private_massages.size(); i++)
             res.add(private_massages.get(i));
 
         if (res.size() > 0) {

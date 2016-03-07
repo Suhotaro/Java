@@ -1,10 +1,10 @@
-package ua.kiev.prog;
+package ua.kiev.prog.Servlets;
 
-import javax.servlet.ServletContext;
+import ua.kiev.prog.User.UsersMap;
+
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.LinkedList;
 import java.util.List;
 
 public class ListUsersServlet extends HttpServlet {

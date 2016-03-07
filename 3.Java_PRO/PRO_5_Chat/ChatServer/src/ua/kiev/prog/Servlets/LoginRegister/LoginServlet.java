@@ -1,4 +1,7 @@
-package ua.kiev.prog;
+package ua.kiev.prog.Servlets.LoginRegister;
+
+import ua.kiev.prog.User.User;
+import ua.kiev.prog.User.UsersMap;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,8 +30,10 @@ public class LoginServlet  extends HttpServlet {
 
         HttpSession http_session = req.getSession(true);
         String ID = http_session.getId();
+        http_session.setAttribute("login", login);
         User user = usersMap.getUser(login);
         user.setID(http_session.getId());
+
 
         os.write("OK".getBytes());
 
