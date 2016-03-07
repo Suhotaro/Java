@@ -34,18 +34,20 @@ public class Message implements Serializable {
 				.append("] ").append(text).toString();
 	}
 
-	public int send(String url) throws IOException {
+	public int send(String url, String cookie_name, String cookie_value) throws IOException {
 		URL obj = new URL(url);
+
 		HttpURLConnection conn = (HttpURLConnection) obj.openConnection();
-		
+
 		conn.setRequestMethod("POST");
 		conn.setDoOutput(true);
-	
+        conn.setRequestProperty("Cookie", cookie_name + "=" + cookie_value);
+
 		OutputStream os = conn.getOutputStream();
 		try {
 			String json = toJSON();
 			os.write(json.getBytes());
-			
+
 			return conn.getResponseCode();
 		} finally {
 			os.close();
